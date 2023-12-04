@@ -39,19 +39,28 @@
 
 			<?php
 			$do=$_GET['do']??'main';
+			$file="./front/{$do}.php";
+			// 判斷檔案是否存在(路徑包含檔名)
+			if(file_exists($file)){
+				include $file;
+			}else{
+				include "./front/main.php";
+			}
+
 			// ??: 這是 null 合併運算符。
 			// 如果左運算元存在且不是 null，則返回左運算元的值；否則，返回右運算元的值。
 			// 如果 $_GET['do'] 是 null 或未設定，則 $do 將被設定為 'main'
-			switch ($do) {
-				case "$do";
-					include "./front/$do.php";
-					break;
-				// case "news";
-				// 	include "./front/news.php";
-				// 	break;
-					default:
-					include "./front/main.php";
-			}
+			
+			// switch ($do) {
+			// 	case "login";
+			// 		include "./front/login.php";
+			// 		break;
+			// 	case "news";
+			// 		include "./front/news.php";
+			// 		break;
+			// 		default:
+			// 		include "./front/main.php";
+			// }
 			?>
 
 			<!-- 中間區塊結束 -->
@@ -74,7 +83,7 @@
 			</script>
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
+				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=login&#39;)">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 					<script>
