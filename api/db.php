@@ -61,6 +61,7 @@ class DB{
     
     function save($array){
         if(isset($array['id'])){
+            // $array = array('id' => 123, 'column1' => 'value1', 'column2' => 'value2');
             $sql = "update `$this->table` set ";
     
             if (!empty($array)) {
@@ -70,6 +71,7 @@ class DB{
             $sql .= join(",", $tmp);
             $sql .= " where `id`='{$array['id']}'";
         }else{
+            // $array = array('column1' => 'value1', 'column2' => 'value2');
             $sql = "insert into `$this->table` ";
             $cols = "(`" . join("`,`", array_keys($array)) . "`)";
             $vals = "('" . join("','", $array) . "')";
