@@ -21,13 +21,16 @@ class DB{
     {
         $sql = "select * from `$this->table` ";
         $sql =$this->sql_all($sql,$where,$other);
-        return  $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
+    // all 方法用於從資料表中擷取所有資料。
+    // 它接受兩個可選參數 $where 和 $other，分別用於指定查詢的條件和其他條件。
+    // 最後，使用 PDO 連線執行 SQL 查詢，並返回結果集。
 
     function count( $where = '', $other = ''){
         $sql = "select count(*) from `$this->table` ";
         $sql=$this->sql_all($sql,$where,$other);
-        return  $this->pdo->query($sql)->fetchColumn(); 
+        return $this->pdo->query($sql)->fetchColumn(); 
     }
     private function math($math,$col,$array='',$other=''){
         $sql="select $math(`$col`)  from `$this->table` ";
@@ -35,13 +38,13 @@ class DB{
         return $this->pdo->query($sql)->fetchColumn();
     }
     function sum($col='', $where = '', $other = ''){
-        return  $this->math('sum',$col,$where,$other);
+        return $this->math('sum',$col,$where,$other);
     }
     function max($col, $where = '', $other = ''){
-        return  $this->math('max',$col,$where,$other);
+        return $this->math('max',$col,$where,$other);
     }  
     function min($col, $where = '', $other = ''){
-        return  $this->math('min',$col,$where,$other);
+        return $this->math('min',$col,$where,$other);
     }  
     
     function find($id)
@@ -102,7 +105,6 @@ class DB{
      */
     function q($sql){
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
     private function a2s($array){
@@ -112,6 +114,8 @@ class DB{
         return $tmp;
     }
 
+    // sql_all 方法是一個私有方法，它被各個方法內部調用，用於組合 SQL 查詢語句。
+    // 這個方法檢查資料表是否被設定且不是空的，然後根據條件和其他條件構建 SQL 語句。
     private function sql_all($sql,$array,$other){
 
         if (isset($this->table) && !empty($this->table)) {
