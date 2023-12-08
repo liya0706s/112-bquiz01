@@ -1,9 +1,10 @@
 <?php
 include_once "db.php";
-// 取得資料表名稱
+// 從 POST 請求中取得資料表名稱
 $table=$_POST['table'];
 
-// 將資料表名稱轉成手字大寫的資料表物件變數
+// 將資料表名稱轉成手字大寫的"資料表物件變數"
+// 可變變數，兩個dollar sign
 $DB=${ucfirst($table)};
 
 // 取得id為1的資料

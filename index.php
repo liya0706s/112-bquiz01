@@ -43,7 +43,7 @@
 			// 如果$do符合isset就是$_GET['do']，否則導入main
 			// 12-04影片要看!!!
 			$file="./front/{$do}.php";
-			// 判斷檔案是否存在(路徑包含檔名)
+			// 判斷檔案是否存在(路徑包含檔名)，如果是亂打的會引入main.php
 			if(file_exists($file)){
 				include $file;
 			}else{
@@ -52,7 +52,7 @@
 
 			// ??: 這是 null 合併運算符。
 			// 如果左運算元存在且不是 null，則返回左運算元的值；否則，返回右運算元的值。
-			// 如果 $_GET['do'] 是 null 或未設定，則 $do 將被設定為 'main'
+			// 如果 $_GET['do'] 是 null 或未被定義，則 $do 將被設定為 'main'
 			
 			// switch ($do) {
 			// 	case "login";
