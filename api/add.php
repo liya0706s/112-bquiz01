@@ -22,6 +22,9 @@ if (isset($_FILES['img']['tmp_name'])) {
 
 // 刪除不必要的 $_POST['table'] 變數：
 // 因為它在建立資料表物件後已經用不到了。
+
+$_POST['sh']=($table=='title')?0:1;
+
 unset($_POST['table']);
 $DB->save($_POST);
 

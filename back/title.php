@@ -28,7 +28,7 @@
                         </td>
                         <td width="7%">
                             <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
-                            <!-- 多選多筆資料name裡面放陣列 -->
+                            <!-- 選多筆資料name裡面放陣列 -->
                         </td>
                         <td>
                             <input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')" value="更新圖片">

@@ -14,7 +14,13 @@ foreach ($_POST['text'] as $id => $text) {
         // post文字資料取代撈出來的資料
         $row['text'] = $text;
         // 存在sh變數，有沒有等於目前id
-        $row['sh'] = (isset($_POST['sh']) && $_POST['sh']==$id)?1:0;
+
+        if ($table == 'title') {
+            $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
+        } else {
+            $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
+            // 迴圈輪到的id有沒有在 sh的陣列 中
+        }
         $DB->save($row);
     }
 }

@@ -1,10 +1,7 @@
-<?php include_once "./api/db.php";?>
+<?php include_once "./api/db.php"; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0040)http://127.0.0.1/test/exercise/collage/? -->
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 	<title>卓越科技大學校園資訊系統</title>
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
@@ -19,11 +16,14 @@
 			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 		</div>
 	</div>
-	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-		<a title="" href="./home_files/home.htm">
-			<div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div><!--標題-->
-		</a>
+		<?php
+		$title = $Title->find(['sh' => 1]);
+		?>
+		<a title="<?=$title['text'];?>" href="index.php">
+			<!-- 按下標題都會回到首頁 -->
+			<div class="ti" style="background:url(&#39;./img/<?=$title['img'];?>&#39;); background-size:cover;"></div>
+			<!--標題--></a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
 				<div id="menuput" class="dbor">
@@ -31,29 +31,29 @@
 					<span class="t botli">主選單區</span>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 : <?=$Total->find(1)['total'];?>
-						</span>
+					<span class="t">進站總人數 : <?= $Total->find(1)['total']; ?>
+					</span>
 				</div>
 			</div>
 
 			<!-- 中間區塊開始 -->
 
 			<?php
-			$do=$_GET['do']??'main';
+			$do = $_GET['do'] ?? 'main';
 			// 如果$do符合isset就是$_GET['do']，否則導入main
 			// 12-04影片要看!!!
-			$file="./front/{$do}.php";
+			$file = "./front/{$do}.php";
 			// 判斷檔案是否存在(路徑包含檔名)，如果是亂打的會引入main.php
-			if(file_exists($file)){
+			if (file_exists($file)) {
 				include $file;
-			}else{
+			} else {
 				include "./front/main.php";
 			}
 
 			// ??: 這是 null 合併運算符。
 			// 如果左運算元存在且不是 null，則返回左運算元的值；否則，返回右運算元的值。
 			// 如果 $_GET['do'] 是 null 或未被定義，則 $do 將被設定為 'main'
-			
+
 			// switch ($do) {
 			// 	case "login";
 			// 		include "./front/login.php";
