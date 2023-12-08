@@ -1,14 +1,11 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">進站總人數管理</p>
     <form method="post" target="back" action="?do=tii">
-        <table width="100%">
+        <table style="width:50%;margin:auto">
             <tbody>
                 <tr class="yel">
-                    <td width="45%">網站標題</td>
-                    <td width="23%">替代文字</td>
-                    <td width="7%">顯示</td>
-                    <td width="7%">刪除</td>
-                    <td></td>
+                    <td width="50%">網站標題</td>
+                    <td width="50%"><input type="number" name="total" value="<?=$Total->find(1)['total'];?>"></td>
                 </tr>
             </tbody>
         </table>

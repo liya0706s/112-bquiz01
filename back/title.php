@@ -5,7 +5,10 @@
             <tbody>
                 <tr class="yel">
                     <td width="45%">網站標題</td>
-                    <td width="23%"><input type="number" name="total" value=""></td>
+                    <td width="23%">替代文字</td>
+                    <td width="7%">顯示</td>
+                    <td width="7%">刪除</td>
+                    <td></td>
                     
                 </tr>
             </tbody>
