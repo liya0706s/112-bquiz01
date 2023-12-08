@@ -7,8 +7,7 @@
                     <td width="50%">網站標題</td>
                     <td width="50%">
                         <input type="number" name="total" value="<?=$Total->find(1)['total'];?>">
-                        <input type="hidden" name="table" value="total">
-                    
+                        <input type="hidden" name="table" value="<?=$do;?>">
                     </td>
                 </tr>
             </tbody>
@@ -17,7 +16,10 @@
             <tbody>
                 <tr>
                     <td width="200px"></td>
-                    <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
+                    <td class="cent">
+                        <input type="submit" value="修改確定">
+                        <input type="reset" value="重置">
+                    </td>
                 </tr>
             </tbody>
         </table>

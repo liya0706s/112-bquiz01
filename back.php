@@ -87,11 +87,12 @@
 				<!-- 右下挖空 -->
 				<?php
 				$do = $_GET['do'] ?? 'title';
-				// 網頁不存在的化，預設回到title
+				// 網頁不存在的話，預設回到title
 				$file = "./back/{$do}.php";
 				// 判斷檔案是否存在(路徑包含檔名)
 				if (file_exists($file)) {
 					include $file;
+					// 這是什麼??
 				} else {
 					include "./back/title.php";
 				}

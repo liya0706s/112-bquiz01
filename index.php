@@ -40,6 +40,8 @@
 
 			<?php
 			$do=$_GET['do']??'main';
+			// 如果$do符合isset就是$_GET['do']，否則導入main
+			// 12-04影片要看!!!
 			$file="./front/{$do}.php";
 			// 判斷檔案是否存在(路徑包含檔名)
 			if(file_exists($file)){
