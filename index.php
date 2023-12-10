@@ -1,4 +1,4 @@
-<?php include_once "./api/db.php"; ?>
+<?php include_once "./api/db.php";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0040)http://127.0.0.1/test/exercise/collage/? -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -31,26 +31,25 @@
 					<span class="t botli">主選單區</span>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 : <?= $Total->find(1)['total']; ?>
-					</span>
+					<span class="t">進站總人數 : <?=$Total->find(1)['total'];?></span>
 				</div>
 			</div>
 
 			<!-- 中間區塊開始 -->
 
 			<?php
-			$do = $_GET['do'] ?? 'main';
+			$do=$_GET['do']??'main';
 			// 如果$do符合isset就是$_GET['do']，否則導入main
 			// $do = isset($_GET['do']) ? $_GET['do'] : 'main';
 			// 檔案的位置，$do設定為變數，多個頁面自動替換，不用打很長的程式碼
 			$file = "./front/{$do}.php";
 			// 判斷檔案是否存在(路徑包含檔名)，如果是亂打的會引入main.php
-			if (file_exists($file)) {
+			if(file_exists($file)) {
 				include $file;
-			} else {
+			}else{
 				include "./front/main.php";
 			}
-
+			
 			// ??: 這是 null 合併運算符。
 			// 如果左運算元存在且不是 null，則返回左運算元的值；否則，返回右運算元的值。
 			// 如果 $_GET['do'] 是 null 或未被定義，則 $do 將被設定為 'main'
@@ -73,7 +72,7 @@
 			<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
 			<script>
 				$(".sswww").hover(
-					function() {
+					function(){
 						$("#alt").html("" + $(this).children(".all").html() + "").css({
 							"top": $(this).offset().top - 50
 						})

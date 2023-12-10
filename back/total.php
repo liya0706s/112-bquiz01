@@ -4,7 +4,7 @@
         <table style="width:50%;margin:auto">
             <tbody>
                 <tr class="yel">
-                    <td width="50%">網站標題</td>
+                    <td width="50%">進站總人數</td>
                     <td width="50%">
                         <input type="number" name="total" value="<?=$Total->find(1)['total'];?>">
                         <input type="hidden" name="table" value="<?=$do;?>">
@@ -16,6 +16,7 @@
             <tbody>
                 <tr>
                     <td width="200px"></td>
+                    <!-- 原本title的新增刪除 -->
                     <td class="cent">
                         <input type="submit" value="修改確定">
                         <input type="reset" value="重置">
