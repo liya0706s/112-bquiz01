@@ -62,6 +62,7 @@ class DB{
         return $row;
     }
     
+    // update or insert
     function save($array){
         if(isset($array['id'])){
             // $array = array('id' => 123, 'column1' => 'value1', 'column2' => 'value2');

@@ -6,7 +6,7 @@ unset($_POST['table']);
 
 foreach ($_POST['text'] as $id => $text) {
     if (isset($_POST['del']) && in_array($id, $_POST['del'])) {
-        // 有勾選刪除，有在迴圈陣列中，要刪除
+        // 勾選刪除的，是text被選中的id 有在迴圈陣列中，要刪除
         $DB->del($id);
     } else {
         // 顯示與否，或是要不要更新
