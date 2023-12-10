@@ -12,7 +12,7 @@
 <body>
 	<div id="cover" style="display:none; ">
 		<div id="coverr">
-			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl(&#39;#cover&#39;)">X</a>
+			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>
 			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 		</div>
 	</div>
@@ -22,7 +22,7 @@
 		?>
 		<a title="<?=$title['text'];?>" href="index.php">
 			<!-- 按下標題都會回到首頁 -->
-			<div class="ti" style="background:url(&#39;./img/<?=$title['img'];?>&#39;); background-size:cover;"></div>
+			<div class="ti" style="background:url('./img/<?=$title['img'];?>'); background-size:cover;"></div>
 			<!--標題--></a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
@@ -41,7 +41,8 @@
 			<?php
 			$do = $_GET['do'] ?? 'main';
 			// 如果$do符合isset就是$_GET['do']，否則導入main
-			// 12-04影片要看!!!
+			// $do = isset($_GET['do']) ? $_GET['do'] : 'main';
+			// 檔案的位置，$do設定為變數，多個頁面自動替換，不用打很長的程式碼
 			$file = "./front/{$do}.php";
 			// 判斷檔案是否存在(路徑包含檔名)，如果是亂打的會引入main.php
 			if (file_exists($file)) {
@@ -54,6 +55,7 @@
 			// 如果左運算元存在且不是 null，則返回左運算元的值；否則，返回右運算元的值。
 			// 如果 $_GET['do'] 是 null 或未被定義，則 $do 將被設定為 'main'
 
+			// $do = $_GET['do'] ?? 'main';
 			// switch ($do) {
 			// 	case "login";
 			// 		include "./front/login.php";
@@ -86,7 +88,7 @@
 			</script>
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 					<script>
