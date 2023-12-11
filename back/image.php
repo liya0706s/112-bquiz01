@@ -13,13 +13,19 @@
                 <?php
                 // 後台:用foreach迴圈將all()全部的資料倒出來
                 // 前台:才要加條件sh=1的才要
-                $rows = $DB->all();
-                // $rows = $Image->all();
+                
+                $total = $DB->count();
+                $div = 3;
+                $pages = ceil($total / $div);
+                $now = $_GET['p'] ?? 1;
+                $start = ($now - 1) * $div;
+                $rows = $DB->all(" limit $start,$div");
+
                 foreach ($rows as $row) {
                 ?>
                     <tr>
                         <td>
-                            <img src="./img/<?= $row['img']; ?>" style="width:150px;height:103px">
+                            <img src="./img/<?= $row['img']; ?>" style="width:100px;height:68px">
                         </td>
                             <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         <td>
@@ -38,6 +44,31 @@
                 ?>
             </tbody>
         </table>
+
+        <div class="cent">
+            <?php
+            if ($now > 1) {
+                $prev = $now - 1;
+                echo "<a href='?do=$do&p=$prev'> < </a>";
+                // <= &lt = and less than
+                // 在這頁 image = $do
+            }
+
+            for ($i = 1; $i <= $pages; $i++) {
+                $fontsize = ($now == $i) ? '22px' : '16px';
+                echo "<a href='?do=$do&p=$i' style='font-size:$fontsize'>&nbsp;$i&nbsp;</a>";
+            }
+            // 定義一個$fontsiaze變數 $now==$i代表在當前頁可以改變style
+
+            if ($now<$pages) {
+                // 當前頁小於總頁數
+                $next = $now + 1;
+                echo "<a href='?do=$do&p=$next'> > </a>";
+                // <= &gt = and greater than
+            }
+            ?>
+        </div>
+
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>

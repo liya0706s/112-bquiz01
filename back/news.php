@@ -16,7 +16,7 @@
                 // limit=3只要三筆， limit 3,3(第四筆索引三 後的三筆)
                 $total = $DB->count();
                 $div = 5;
-                // 5筆一頁
+                // 5筆 一頁
                 $pages = ceil($total / $div);
                 $now = $_GET['p'] ?? 1;
                 $start = ($now - 1) * $div;
@@ -44,11 +44,25 @@
 
         <div class="cent">
             <?php
+            if ($now > 1) {
+                $prev = $now - 1;
+                echo "<a href='?do=$do&p=$prev'> < </a>";
+                // <= &lt = and less than
+                // 在這頁 news = $do 
+            }
+
             for ($i = 1; $i <= $pages; $i++) {
-                $fontsize=($now==$i)?'22px':'16px';
-                echo "<a href='?do=news&p=$i' style='font-size:$fontsize'>&nbsp;$i&nbsp;</a>";
+                $fontsize = ($now == $i) ? '22px' : '16px';
+                echo "<a href='?do=$do&p=$i' style='font-size:$fontsize'>&nbsp;$i&nbsp;</a>";
             }
             // 定義一個$fontsiaze變數 $now==$i代表在當前頁可以改變style
+
+            if ($now<$pages) {
+                // 當前頁小於總頁數
+                $next = $now + 1;
+                echo "<a href='?do=$do&p=$next'> > </a>";
+                // <= &gt = and greater than
+            }
             ?>
         </div>
 
