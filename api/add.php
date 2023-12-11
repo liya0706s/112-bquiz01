@@ -24,6 +24,7 @@ if (isset($_FILES['img']['tmp_name'])) {
 // 因為它在建立資料表物件後已經用不到了。
 
 $_POST['sh']=($table=='title')?0:1;
+// table的類型不同判斷是否顯示
 
 unset($_POST['table']);
 $DB->save($_POST);

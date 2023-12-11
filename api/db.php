@@ -155,6 +155,8 @@ $Total=new DB('total');
 $Bottom=new DB('bottom');
 $Ad=new DB('ad');
 // 多一張資料表的物件變數
+$Mvim=new DB('mvim');
+
 
 
 ?>
