@@ -97,7 +97,6 @@
 				// 判斷檔案是否存在(路徑包含檔名)
 				if (file_exists($file)) {
 					include $file;
-					// 這是什麼??
 				} else {
 					include "./back/title.php";
 				}

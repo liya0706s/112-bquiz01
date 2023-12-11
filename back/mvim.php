@@ -1,6 +1,7 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">動畫圖片管理</p>
     <form method="post" action="./api/edit.php">
+        <!-- edit編輯的欄位是否醫治 -->
         <table width="100%" style="text-align: center">
             <tbody>
                 <tr class="yel">
@@ -12,15 +13,16 @@
                 <?php
                 // 後台:用foreach迴圈將all()全部的資料倒出來
                 // 前台:才要加條件sh=1的才要
-                $rows = $Title->all();
+                $rows = $Mvim->all();
                 foreach ($rows as $row) {
                 ?>
                     <tr>
                         <td>
-                            <img src="./img/<?= $row['img']; ?>" style="width:300px;height:30px">
+                            <img src="./img/<?= $row['img']; ?>" style="width:150px;height:100px overflow:hidden">
                         </td>
+                            <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         <td>
-                            <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
+                            <input type="checkbox" name="sh[]" value="<?=$row['id'];?>"<?=($row['sh']==1)?'checked':'';?>>
                         </td>
                         <td>
                             <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
