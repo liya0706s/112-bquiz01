@@ -157,8 +157,14 @@ $Ad=new DB('ad');
 // 多一張資料表的物件變數
 $Mvim=new DB('mvim');
 $Image=new DB('image');
+$News=new DB('news');
 
-
-
+// 大寫DB帶入其他網頁變成全域變數
+if(isset($_GET['do'])){
+    $DB=${ucfirst($_GET['do'])};
+}else{
+    $DB=$Title;
+    // 沒有do=xx時會導入title首頁
+}
 
 ?>

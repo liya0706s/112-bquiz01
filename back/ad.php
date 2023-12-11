@@ -11,7 +11,9 @@
                 <?php
                 // 後台:用foreach迴圈將all()全部的資料倒出來
                 // 前台:才要加條件sh=1的才要
-                $rows=$Ad->all();
+                
+                $rows=$DB->all();
+                // $rows=$Ad->all();
                 foreach ($rows as $row) {
                 ?>
                     <tr>

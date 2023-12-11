@@ -13,25 +13,28 @@
                 <?php
                 // 後台:用foreach迴圈將all()全部的資料倒出來
                 // 前台:才要加條件sh=1的才要
-                $rows=$Title->all();
+                // $DB=${ucfirst($do)}; 統一寫在db.php裡了
+            
+                $rows=$DB->all();
+                // $rows=$Title->all();
                 foreach ($rows as $row) {
                 ?>
                     <tr>
                         <td width="45%">
-                            <img src="./img/<?=$row['img'];?>" style="width:300px;height:30px">
+                            <img src="./img/<?= $row['img']; ?>" style="width:300px;height:30px">
                         </td>
                         <td width="23%">
-                            <input type="text" name="text[<?=$row['id'];?>]" style="width:90%" value="<?=$row['text'];?>">
+                            <input type="text" name="text[<?= $row['id']; ?>]" style="width:90%" value="<?= $row['text']; ?>">
                         </td>
                         <td width="7%">
-                            <input type="radio" name="sh" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
+                            <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
                         </td>
                         <td width="7%">
-                            <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
+                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                             <!-- 選多筆資料name裡面放陣列 -->
                         </td>
                         <td>
-                            <input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')" value="更新圖片">
+                            <input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')" value="更新圖片">
                             <!-- id為了撈資料 -->
                         </td>
                     </tr>
@@ -43,9 +46,9 @@
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
-                    <input type="hidden" name="table" value="<?=$do;?>">
+                    <input type="hidden" name="table" value="<?= $do; ?>">
                     <!-- 隱藏欄位的意義???? -->
-                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?=$do;?>.php?table=<?=$do;?>')" value="新增網站標題圖片"></td>
+                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增網站標題圖片"></td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>
             </tbody>
