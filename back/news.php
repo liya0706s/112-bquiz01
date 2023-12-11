@@ -27,6 +27,7 @@
                     <tr>
                         <td>
                             <textarea type="text" name="text[<?= $row['id']; ?>]" style="width:90%"><?= $row['text']; ?></textarea>
+                        <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         </td>
                         <td>
                             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
@@ -34,7 +35,6 @@
                         <td>
                             <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                         </td>
-
                     </tr>
                 <?php
                 }
@@ -70,8 +70,7 @@
             <tbody>
                 <tr>
                     <input type="hidden" name="table" value="<?= $do; ?>">
-                    <!-- 隱藏欄位的意義???? -->
-                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增動態文字廣告"></td>
+                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增最新消息資料"></td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>
             </tbody>

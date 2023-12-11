@@ -8,7 +8,7 @@
         </tr>
         <tr>
             <td>選單連結網址：</td>
-            <td><input type="href" name="href" id=""></td>
+            <td><input type="text" name="href" id=""></td>
         </tr>
     </table>
     <div>

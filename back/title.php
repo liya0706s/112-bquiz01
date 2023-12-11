@@ -25,13 +25,13 @@
                         </td>
                         <td width="23%">
                             <input type="text" name="text[<?= $row['id']; ?>]" style="width:90%" value="<?= $row['text']; ?>">
+                        <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         </td>
                         <td width="7%">
                             <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
                         </td>
                         <td width="7%">
                             <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
-                            <!-- 選多筆資料name裡面放陣列 -->
                         </td>
                         <td>
                             <input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')" value="更新圖片">
@@ -47,7 +47,6 @@
             <tbody>
                 <tr>
                     <input type="hidden" name="table" value="<?= $do; ?>">
-                    <!-- 隱藏欄位的意義???? -->
                     <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增網站標題圖片"></td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>
