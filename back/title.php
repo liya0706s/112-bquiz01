@@ -3,6 +3,7 @@
     <form method="post" action="./api/edit.php">
         <table width="100%" style="text-align: center">
             <tbody>
+                <!-- 標題 -->
                 <tr class="yel">
                     <td width="45%">網站標題</td>
                     <td width="23%">替代文字</td>
@@ -10,12 +11,15 @@
                     <td width="7%">刪除</td>
                     <td></td>
                 </tr>
+
+                <!-- 資料 -->
                 <?php
-                // 後台:用foreach迴圈將all()全部的資料倒出來
+                // 後臺管理，意味者管理"全部"的資料 all
+                // 後台:用foreach迴圈將 all()全部的資料撈出來放在$rows裡面
                 // 前台:才要加條件sh=1的才要
                 // $DB=${ucfirst($do)}; 統一寫在db.php裡了
-            
-                $rows=$DB->all();
+
+                $rows = $DB->all();
                 // $rows=$Title->all();
                 foreach ($rows as $row) {
                 ?>
@@ -24,8 +28,8 @@
                             <img src="./img/<?= $row['img']; ?>" style="width:300px;height:30px">
                         </td>
                         <td width="23%">
-                            <input type="text" name="text[<?= $row['id']; ?>]" style="width:90%" value="<?= $row['text']; ?>">
-                        <input type="hidden" name="id[]" value="<?=$row['id'];?>">
+                            <input type="text" name="text[]" style="width:90%" value="<?= $row['text']; ?>">
+                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                         </td>
                         <td width="7%">
                             <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
@@ -35,7 +39,7 @@
                         </td>
                         <td>
                             <input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')" value="更新圖片">
-                            <!-- id為了撈資料 -->
+                            <!-- 有table也有id，知道是要"更新"哪一筆資料 -->
                         </td>
                     </tr>
                 <?php
