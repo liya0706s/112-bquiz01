@@ -158,6 +158,9 @@ $Ad=new DB('ad');
 $Mvim=new DB('mvim');
 $Image=new DB('image');
 $News=new DB('news');
+$Admin=new DB('admin');
+$Menu=new DB('menu');
+
 
 // 大寫DB帶入其他網頁變成全域變數
 if(isset($_GET['do'])){
