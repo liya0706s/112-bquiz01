@@ -14,14 +14,16 @@ foreach ($_POST['id'] as $key => $id) {
         // 勾選刪除的，是text被選中的id 有在迴圈陣列中，要刪除
         $DB->del($id);
     } else {
-        // 取得資料庫中該筆資料
+        // 否則取得資料庫中該筆資料
         $row = $DB->find($id);
 
-        // 更新相應的欄位
+        // 更新相對應的欄位
+        // 如果有撈出來有text值，將表單收到的帶入
         if (isset($row['text'])) {
             $row['text'] = $_POST['text'][$key];
         }
 
+        // 根據資料表的不同，更新相應的欄位
         switch ($table) {
             case "title":
                 $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;

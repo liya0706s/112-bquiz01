@@ -7,24 +7,24 @@ include_once "db.php";
 $DB = ${ucfirst($_POST['table'])};
 $table = $_POST['table'];
 
+// 根據資料表的不同，做一些特定處理
+// 這裡是針對 admin 資料表的處理，將 $_POST['pw2'] 刪除。
 switch ($table) {
     case "admin":
         unset($_POST['pw2']);
         break;
 }
 
-// 處理上傳檔案：
+// 處理上傳檔案：  
 if (isset($_FILES['img']['tmp_name'])) {
     move_uploaded_file($_FILES['img']['tmp_name'], "../img/" . $_FILES['img']['name']);
     $_POST['img'] = $_FILES['img']['name'];
 }
 
-// 不同table不同變數名稱
-
+// 如果table不是admin條件下，table是title的話顯示為0，否則顯示為1
 if ($table != 'admin') {
     $_POST['sh'] = ($table == 'title') ? 0 : 1;
 }
-// 只有不是admin資料表才有顯示與否的判斷
 
 unset($_POST['table']); 
 
