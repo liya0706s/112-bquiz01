@@ -21,7 +21,8 @@ if (isset($_FILES['img']['tmp_name'])) {
     $_POST['img'] = $_FILES['img']['name'];
 }
 
-// 如果table不是admin條件下，table是title的話顯示為0，否則顯示為1
+// 如果table不是admin因為admin沒有顯示這個選項，其他table都有
+// table又是在title的狀況，預設$_POST['sh']這個選項是0不顯示，勾選才是顯示
 if ($table != 'admin') {
     $_POST['sh'] = ($table == 'title') ? 0 : 1;
 }

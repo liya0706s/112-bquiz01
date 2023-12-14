@@ -9,8 +9,8 @@
                     <td width="10%">刪除</td>
                 </tr>
                 <?php
-                // 後台:用foreach迴圈將all()全部的資料倒出來
-                // 前台:才要加條件sh=1的才要
+                // 後台:用foreach迴圈將資料庫all()全部的資料倒進去value
+                // 前台:才要加條件sh=1的才要顯示
                 
                 $rows=$DB->all();
                 // $rows=$Ad->all();
@@ -38,7 +38,7 @@
             <tbody>
                 <tr>
                     <input type="hidden" name="table" value="<?=$do;?>">
-                    <!-- 隱藏欄位的意義???? -->
+                    <!-- 隱藏的input為了要??? -->
                     <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?=$do;?>.php?table=<?=$do;?>')" value="新增動態文字廣告"></td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>
