@@ -12,8 +12,8 @@
                     <td></td>
                 </tr>
                 <?php
-
-                $rows = $DB->all();
+                // 只有撈出來主選單(menu_id為0)的資料
+                $rows = $DB->all(['menu_id'=>0]);
                 foreach ($rows as $row) {
                 ?>
                     <tr>
@@ -23,7 +23,8 @@
                         <td>
                             <input type="text" name="href[]" value="<?= $row['href']; ?>">
                         </td>
-                        <td></td>
+                        <!-- $row['id'] 就是主選單id -->
+                        <td><?=$Menu->count(['menu_id'=>$row['id']]);?></td>
                         <td>
                             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
                         </td>
