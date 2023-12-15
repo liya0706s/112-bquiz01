@@ -1,3 +1,4 @@
+<?php include_once "../api/db.php"; ?>
 <h3 class="cent">編輯次選單</h3>
 <hr>
 <form action="./api/submenu.php" method="post" enctype="multipart/form-data">
@@ -9,7 +10,7 @@
         </tr>
         <?php
 $sub=$Menu->all(['menu_id'=>$_GET['id']]);
-// back有送 $_GET['id'] 和$table
+// back/menu有送 $_GET['id'] 和$table
 foreach($subs as $sub){
 ?>
         <tr>
