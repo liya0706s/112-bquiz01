@@ -7,7 +7,7 @@ $table=$_POST['table'];
 // 可變變數，兩個dollar sign
 $DB=${ucfirst($table)};
 
-// 取得id為1的資料
+// 取得一筆只有id為1的資料 (資料表total和bottom) 
 $data=$DB->find(1);
 
 // 將資料中對應的欄位修改為post過來的值
