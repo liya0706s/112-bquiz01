@@ -161,11 +161,11 @@ function to($url)
     header("location:$url");
 }
 
+// 每一張資料表的物件變數
 $Title = new DB('titles');
 $Total = new DB('total');
 $Bottom = new DB('bottom');
 $Ad = new DB('ad');
-// 多一張資料表的物件變數
 $Mvim = new DB('mvim');
 $Image = new DB('image');
 $News = new DB('news');
@@ -182,3 +182,4 @@ if (isset($_GET['do'])) {
     // 沒有do=xx時會導入title首頁
     $DB = $Title;
 }
+?>
