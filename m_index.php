@@ -32,7 +32,7 @@
 						foreach($mainmu as $main){
 						?>
 						<div class='mainmu'>
-							<a  href="<?=$main['href'];?>" style="color:#000; font-size:13px; text-decoration:none;"><?=$main['text'];?></a>
+							<a href="<?=$main['href'];?>" style="color:#000; font-size:13px; text-decoration:none;"><?=$main['text'];?></a>
 							<?php
 							
 							if($Menu->count(['menu_id'=>$main['id']])>0){
@@ -75,8 +75,18 @@
 
                     <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 	<!--右邊-->   
-                	<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=login&#39;)">管理登入</button>
-                	<div style="width:89%; height:480px;" class="dbor">
+					<?php
+					if(isset($_SESSION['login'])){
+					?>
+                	<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;back.php&#39;)">返回管理</button>
+                	<?php
+					}else{
+					?>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+                	<?php
+						}
+					?>
+					<div style="width:89%; height:480px;" class="dbor">
                     	<span class="t botli">校園映象區</span>
 						<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
 					<?php

@@ -71,13 +71,13 @@ body {
 /* 主選單 */
 	{
 	position: relative;
-	border-radius: 10px;
+	border-radius:10px;
 	background: url(../icon/menu.fw.png) center no-repeat;
-	background-size: cover;
-	line-height: 30px;
+	background-size:cover;
+	line-height:30px;
 	padding: 2px 10px 2px 10px;
 	margin: 7px 1px 7px 1px;
-	height: 32px;
+	height:32px;
 	/* 調整主選單高度 */
 }
 
@@ -92,28 +92,28 @@ body {
 .mainmu2
 /* 次選單 */
 	{
-	position: relative;
-	z-index: 9;
-	/* 變最上層z-index，高維度 */
-	/* 讓次選單在主選單上方 */
+	position:relative;
 	border-radius: 10px;
 	background: url(../icon/menu3.fw.png)center no-repeat;
 	background-size: 100% 100%;
 	line-height: 30px;
 	padding: 2px 10px 2px 10px;
 	margin: 7px 1px 7px 1px;
+	z-index:9;
+	/* 變最上層z-index，高維度 */
+	/* 讓次選單在主選單上方 */
 }
 
-.mainmu2:hover {
-	background: url(../icon/menu4.fw.png) center no-repeat;
-	background-size: cover;
+.mainmu2:hover{
+	background:url(../icon/menu4.fw.png) center no-repeat;
+	background-size:cover;
 }
 
 /* 2023-12-18 新增 */
 .mw {
 	position: relative;
-	left: 100px;
-	display: none;
+	left:100px;
+	display:none;
 	/* 次選單預設不顯示 */
 	top:-20px;
 	/* 調整次選單位置蓋住主選單 */
@@ -122,9 +122,9 @@ body {
 /* 2023-12-18 end */
 
 #lf {
-	height: 540px;
-	width: 21%;
-	display: inline-block;
+	height:540px;
+	width:21%;
+	display:inline-block;
 }
 
 #menuput {
@@ -188,10 +188,10 @@ button:focus {
 	text-decoration: none;
 }
 
-a {
+a{
 	text-decoration: none;
 }
 
-a:hover {
+a:hover{
 	text-decoration: underline;
 }

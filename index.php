@@ -35,17 +35,17 @@
 					<span class="t botli">主選單區</span>
 					<?php
 					// 撈取全部的主選單(menu_id=0)且有顯示的
-					$mainmu = $Menu->all(['sh' => 1,'menu_id' => 0]);
-					foreach ($mainmu as $main) {
+					$mainmu=$Menu->all(['sh'=>1,'menu_id'=>0]);
+					foreach($mainmu as $main){
 					?>
 						<div class="mainmu">
-							<a href="<?= $main['href']; ?>" style="color:#000; font-size:13px; text-decoration:none;"><?= $main['text']; ?></a>
+							<a href="<?=$main['href'];?>" style="color:#000; font-size:13px; text-decoration:none;"><?=$main['text'];?></a>
 							<?php
 							// 去數>0代表，至少有一個次選單
-							if ($Menu->count(['menu_id' => $main['id']]) > 0) {
+							if($Menu->count(['menu_id'=>$main['id']])>0){
 								echo "<div class='mw'>";
-								$sub = $Menu->all(['menu_id' => $main['id']]);
-								foreach ($subs as $sub) {
+								$subs=$Menu->all(['menu_id'=>$main['id']]);
+								foreach($subs as $sub){
 									echo "<a href='{$sub['href']}'>";
 									echo "<div class='mainmu2'>";
 									echo $sub['text'];
