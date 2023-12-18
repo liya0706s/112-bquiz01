@@ -30,7 +30,7 @@
                         <td width="23%">
                             <input type="text" name="text[]" style="width:90%" value="<?= $row['text']; ?>">
                             <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
-                            <!-- 有input:hidden-id是要傳遞給 api/edit  -->
+                            <!-- 有input:hidden id是要傳遞給 api/edit  -->
                         </td>
                         <td width="7%">
                             <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
