@@ -28,6 +28,7 @@
                             <img src="./img/<?= $row['img']; ?>" style="width:100px;height:68px">
                         </td>
                             <input type="hidden" name="id[]" value="<?=$row['id'];?>">
+                            <!-- 知道是哪一筆id才可以修改 -->
                         <td>
                             <input type="checkbox" name="sh[]" value="<?=$row['id'];?>"<?=($row['sh']==1)?'checked':'';?>>
                         </td>
@@ -73,7 +74,7 @@
             <tbody>
                 <tr>
                     <input type="hidden" name="table" value="<?= $do; ?>">
-                    <!-- 隱藏欄位的意義???? -->
+                    <!-- 把table的值傳給api/add 或是 api/edit -->
                     <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增校園映像圖片"></td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>

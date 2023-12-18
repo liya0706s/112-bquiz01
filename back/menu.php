@@ -33,10 +33,11 @@
                         </td>
                         <td>
                             <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?=$do;?>&id=<?=$row['id'];?>')">
-                            <!-- 傳送到submenu!! 這邊是$_GET id 再送到modal -->
+                            <!-- 傳送到submenu!!! 這邊是$_GET id 再送到modal -->
                         </td>
                     </tr>
                     <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                    <!-- id這個欄位送到api/edit 是$_POST['id'] -->
                 <?php
                 }
                 ?>

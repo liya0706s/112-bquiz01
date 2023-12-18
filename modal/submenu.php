@@ -10,6 +10,7 @@
             <td>刪除</td>
         </tr>
         <?php
+        // 次選單的menu_id==他主選單的id
         $subs = $Menu->all(['menu_id' => $_GET['id']]);
         // back/menu有送 $_GET['id'] 和$table
         foreach ($subs as $sub) {
