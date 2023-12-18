@@ -175,11 +175,18 @@ $Menu = new DB('menu');
 
 // 大寫DB帶入其他網頁變成全域變數
 if (isset($_GET['do'])) {
-    if(isset(${ucfirst($_GET['do'])})){
-         $DB=${ucfirst($_GET['do'])};
+    if (isset(${ucfirst($_GET['do'])})) {
+        $DB = ${ucfirst($_GET['do'])};
     }
 } else {
     // 沒有do=xx時會導入title首頁
     $DB = $Title;
 }
-?>
+
+// 先檢查是否已經登入過了
+// 自行定義命名session變數
+if (!isset($_SESSION['visited'])) {
+    $Total->q("update `total` set `total`=`total`+1 where `id`=1");
+    $_SESSION['visited'] = 1;
+    // 不可放0, session會是null
+}

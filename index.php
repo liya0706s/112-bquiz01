@@ -35,7 +35,7 @@
 					<span class="t botli">主選單區</span>
 					<?php
 					// 撈取全部的主選單(menu_id=0)且有顯示的
-					$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
+					$mainmu = $Menu->all(['sh' => 1,'menu_id' => 0]);
 					foreach ($mainmu as $main) {
 					?>
 						<div class="mainmu">
@@ -102,8 +102,20 @@
 
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
-				<!-- 2023-12-18  -->
+				<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入-->
+<?php
+if(isset($_SESSION['login'])){
+
+?>
+				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('back.php')">返回管理</button>
+<?php
+}else{
+?>
+				
 				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
+<?php
+}
+?>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 
@@ -138,7 +150,7 @@
 							if (x == 1 && (nowpage - 1) >= 0) {
 								nowpage--;
 							}
-							if (x == 2 && (nowpage + 1) <= num * 1 + 3) {
+							if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
 								nowpage++;
 							}
 							// nowpage  num   s   t	
@@ -164,8 +176,8 @@
 								$("#ssaa" + t).show()
 							}
 						}
-						pp(1)
-						// 先執行1
+						pp(2)
+						// 先執行2??
 					</script>
 				</div>
 			</div>
