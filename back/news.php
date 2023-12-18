@@ -14,26 +14,26 @@
 
                 // 做分頁:只撈出當前頁需要的那幾筆 
                 // limit=3只要三筆， limit 3,3(第四筆索引三 後的三筆)
-                $total = $DB->count();
-                $div = 5;
+                $total=$DB->count();
+                $div=5;
                 // 5筆 一頁
-                $pages = ceil($total / $div);
-                $now = $_GET['p'] ?? 1;
-                $start = ($now - 1) * $div;
-                $rows = $DB->all(" limit $start,$div");
+                $pages=ceil($total/$div);
+                $now=$_GET['p']??1;
+                $start=($now-1)*$div;
+                $rows=$DB->all(" limit $start,$div");
                 // $rows=$Ad->all();
-                foreach ($rows as $row) {
+                foreach($rows as $row){
                 ?>
                     <tr>
                         <td>
-                            <textarea type="text" name="text[<?= $row['id']; ?>]" style="width:90%"><?= $row['text']; ?></textarea>
+                            <textarea type="text" name="text[]" style="width:90%;height:60px"><?=$row['text'];?></textarea>
                         <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         </td>
                         <td>
-                            <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
+                            <input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
                         </td>
                         <td>
-                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+                            <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
                         </td>
                     </tr>
                 <?php
