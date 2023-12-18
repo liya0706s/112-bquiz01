@@ -1,11 +1,8 @@
-﻿<?php include_once "./api/db.php"; 
-// 如果存在login就可以操作，反之亦然 不存在login變數就請你回首頁
-// 從check.php用session有login參數的機制保護頁面
+<?php include_once "./api/db.php"; 
 if(!isset($_SESSION['login'])){
 	to("index.php");
 }
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0068)?do=admin&redo=title -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,22 +19,22 @@ if(!isset($_SESSION['login'])){
 <body>
 	<div id="cover" style="display:none; ">
 		<div id="coverr">
-			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>
+			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl(&#39;#cover&#39;)">X</a>
 			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 		</div>
 	</div>
+
 	<div id="main">
 		<?php
 		$title = $Title->find(['sh' => 1]);
 		?>
 		<a title="<?= $title['text']; ?>" href="index.php">
-			<!-- ?代表 當前頁面 回首頁-->
-			<div class="ti" style="background:url('./img/<?= $title['img']; ?>'); background-size:cover;"></div>
+			<div class="ti" style="background:url(&#39;./img/<?= $title['img']; ?>&#39;); background-size:cover;"></div>
 			<!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
-				<div id="menuput" class="dbor cent">
+				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">後台管理選單</span>
 					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=title">
@@ -90,24 +87,20 @@ if(!isset($_SESSION['login'])){
 						<tr>
 							<td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;" class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a></td>
 							<td><button onclick="location.href='./api/logout.php'" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
-
 						</tr>
 					</tbody>
 				</table>
-
-				<!-- 右下挖空 -->
 				<?php
+
 				$do = $_GET['do'] ?? 'title';
-				// 網頁不存在的話，預設回到title
 				$file = "./back/{$do}.php";
-				// 判斷檔案是否存在(路徑包含檔名)
 				if (file_exists($file)) {
 					include $file;
 				} else {
 					include "./back/title.php";
 				}
-				?>
 
+				?>
 			</div>
 			<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
 			<script>
