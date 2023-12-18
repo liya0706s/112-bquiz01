@@ -35,17 +35,17 @@
 					<span class="t botli">主選單區</span>
 					<?php
 					// 撈取全部的主選單(menu_id=0)且有顯示的
-					$mainmu=$Menu->all(['sh'=>1,'menu_id'=>0]);
-					foreach($mainmu as $main){
+					$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
+					foreach ($mainmu as $main) {
 					?>
 						<div class="mainmu">
-							<a href="<?=$main['href'];?>" style="color:#000; font-size:13px; text-decoration:none;"><?=$main['text'];?></a>
+							<a href="<?= $main['href']; ?>" style="color:#000; font-size:13px; text-decoration:none;"><?= $main['text']; ?></a>
 							<?php
 							// 去數>0代表，至少有一個次選單
-							if($Menu->count(['menu_id'=>$main['id']])>0){
+							if ($Menu->count(['menu_id' => $main['id']]) > 0) {
 								echo "<div class='mw'>";
-								$subs=$Menu->all(['menu_id'=>$main['id']]);
-								foreach($subs as $sub){
+								$subs = $Menu->all(['menu_id' => $main['id']]);
+								foreach ($subs as $sub) {
 									echo "<a href='{$sub['href']}'>";
 									echo "<div class='mainmu2'>";
 									echo $sub['text'];
@@ -56,7 +56,7 @@
 							}
 							?>
 						</div>
-						
+
 					<?php
 					}
 					?>
@@ -103,19 +103,19 @@
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
 				<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入-->
-<?php
-if(isset($_SESSION['login'])){
+				<?php
+				if (isset($_SESSION['login'])) {
 
-?>
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('back.php')">返回管理</button>
-<?php
-}else{
-?>
-				
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
-<?php
-}
-?>
+				?>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('back.php')">返回管理</button>
+				<?php
+				} else {
+				?>
+
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
+				<?php
+				}
+				?>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 
