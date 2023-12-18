@@ -23,7 +23,7 @@
                         <td>
                             <input type="text" name="href[]" value="<?= $row['href']; ?>">
                         </td>
-                        <!-- $row['id'] 就是主選單id -->
+                        <!-- 算次選單數量， 撈條件 menu_id 是主選單id $row['id'] -->
                         <td><?=$Menu->count(['menu_id'=>$row['id']]);?></td>
                         <td>
                             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
