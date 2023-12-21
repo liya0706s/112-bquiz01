@@ -24,7 +24,7 @@ class DB
         $sql = $this->sql_all($sql, $where, $other);
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
-    // all 方法用於從資料表中擷取所有資料。
+    // all 方法用於從資料表中 擷取所有資料。
     // 它接受兩個可選參數 $where 和 $other，分別用於指定查詢的條件和其他條件。
     // 最後，使用 PDO 連線執行 SQL 查詢，並返回結果集。
 
