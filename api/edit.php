@@ -1,4 +1,5 @@
-<?php include_once "db.php";
+<?php 
+include_once "db.php";
 
 // 取得資料表名稱
 $table = $_POST['table'];
