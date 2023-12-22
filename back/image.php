@@ -1,7 +1,7 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">校園映像資料管理</p>
     <form method="post" action="./api/edit.php">
-        <!-- edit編輯的欄位是否醫治 -->
+        <!-- edit編輯的欄位是否一致 -->
         <table width="100%" style="text-align: center">
             <tbody>
                 <tr class="yel">

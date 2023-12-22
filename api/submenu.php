@@ -1,4 +1,5 @@
-<?php include_once "db.php";
+<?php 
+include_once "db.php";
 
 // 判斷有無資料要修改
 if(isset($_POST['id'])){
@@ -37,4 +38,4 @@ if(isset($_POST['add_text'])){
 }
 
 to("../back.php?do=menu");
-// 這邊menu可以用$table嗎????
+// 這邊menu可以用$_POST['table'] 嗎????
