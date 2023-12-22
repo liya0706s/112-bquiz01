@@ -97,8 +97,10 @@ if(!isset($_SESSION['login'])){
 
 				<!-- 右下挖空 -->
 				<?php
+				// 例如 ?do=title，意思是$_GET['do']=title
 				$do = $_GET['do'] ?? 'title';
 				// 網頁不存在的話，預設回到title
+				// 如果$_GET['do']存在的話，$do就是table名，否則回到title
 				$file = "./back/{$do}.php";
 				// 判斷檔案是否存在(路徑包含檔名)
 				if (file_exists($file)) {

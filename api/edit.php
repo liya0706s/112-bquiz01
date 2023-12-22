@@ -8,7 +8,11 @@ $DB = ${ucfirst($table)};
 // 刪除不必要的 $_POST['table'] 變數
 unset($_POST['table']);
 
-// 迴圈處理每一筆資料
+
+// echo "<pre>";
+// print_r($_POST['id']);
+// echo "</pre>";
+// 迴圈一個個 $_POST陣列中名為'id'的子陣列
 foreach ($_POST['id'] as $key => $id) {
     // 判斷是否要刪除該筆資料
     if (isset($_POST['del']) && in_array($id, $_POST['del'])) {
@@ -18,8 +22,8 @@ foreach ($_POST['id'] as $key => $id) {
         // 否則取得資料庫中該筆資料
         $row = $DB->find($id);
 
-        // 更新相對應的欄位
-        // 如果有撈出來有text值，將表單收到的帶入
+        // 更新text欄位
+        // 將表單提交的text值 指定給 資料庫中的text值
         if (isset($row['text'])) {
             $row['text'] = $_POST['text'][$key];
         }
@@ -28,6 +32,7 @@ foreach ($_POST['id'] as $key => $id) {
         switch ($table) {
             case "title":
                 $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
+                // 檢查 'sh' 的值是否等於當前迭代中的 $id 變量的值
                 break;
             case "admin":
                 $row['acc'] = $_POST['acc'][$key];

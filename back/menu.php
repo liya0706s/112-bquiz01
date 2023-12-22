@@ -23,7 +23,7 @@
                         <td>
                             <input type="text" name="href[]" value="<?= $row['href']; ?>">
                         </td>
-                        <!-- $row['id'] 就是主選單id -->
+                        <!-- 算次選單數量， 撈條件 menu_id 是主選單id $row['id'] -->
                         <td><?=$Menu->count(['menu_id'=>$row['id']]);?></td>
                         <td>
                             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
@@ -33,10 +33,11 @@
                         </td>
                         <td>
                             <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?=$do;?>&id=<?=$row['id'];?>')">
-                            <!-- 傳送到submenu!! 這邊是$_GET id 再送到modal -->
+                            <!-- 傳送到submenu!!! 這邊是$_GET id 再送到modal -->
                         </td>
                     </tr>
                     <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                    <!-- id這個欄位送到api/edit 是$_POST['id'] -->
                 <?php
                 }
                 ?>
