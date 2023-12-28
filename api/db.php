@@ -176,6 +176,8 @@ $Menu = new DB('menu');
 if (isset($_GET['do'])) {
     if (isset(${ucfirst($_GET['do'])})) {
         $DB = ${ucfirst($_GET['do'])};
+        // 例如 $_GET['do']=news; ${ucfirst($_GET['do'])}會轉換成$News
+        // 賦值給 $DB
     }
 } else {
     // 沒有do=xx時會導入title首頁
