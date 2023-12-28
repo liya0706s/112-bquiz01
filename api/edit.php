@@ -15,6 +15,7 @@ unset($_POST['table']);
 // 迴圈一個個 $_POST陣列中名為'id'的子陣列
 foreach ($_POST['id'] as $key => $id) {
     // 判斷是否要刪除該筆資料
+    // echo "$key : $id <br>";
     if (isset($_POST['del']) && in_array($id, $_POST['del'])) {
         // 勾選刪除的，是text被選中的id 有在迴圈陣列中，要刪除
         $DB->del($id);
