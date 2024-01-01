@@ -107,12 +107,11 @@
 				if (isset($_SESSION['login'])) {
 
 				?>
-					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('back.php')">返回管理</button>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='back.php'">返回管理</button>
 				<?php
 				} else {
 				?>
-
-					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='?do=login'">管理登入</button>
 				<?php
 				}
 				?>
@@ -129,8 +128,8 @@
 
 					foreach ($imgs as $idx => $img) {
 					?>
-						<div id="ssaa<?= $idx; ?>" class="im cent">
-							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;border:3px solid orange; margin:3px;">
+						<div id="ssaa<?= $idx; ?>" class='im cent'>
+							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
 						</div>
 					<?php
 					}
@@ -139,7 +138,7 @@
 
 					<script>
 						var nowpage = 1,
-							num = <?= $Image->count(['sh' => 1]); ?>
+							num = <?= $Image->count(['sh' => 1]); ?>;
 						// pp function裡面的參數x, (nowpage-1) 要加小括號
 						// 如果(現在頁面-1)>0,代表要往上一頁，現在至少是2
 						// 邏輯等同於分頁和萬年曆的上個月份 
@@ -147,7 +146,7 @@
 						// num代表總圖片數量 
 						function pp(x) {
 							var s, t;
-							if (x == 1 && (nowpage - 1) >= 0) {
+							if (x == 1 && nowpage - 1 >= 0) {
 								nowpage--;
 							}
 							if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
