@@ -31,6 +31,7 @@ class DB
     {
         $sql = "select count(*) from `$this->table` ";
         $sql = $this->sql_all($sql, $where, $other);
+        // echo $sql;
         return $this->pdo->query($sql)->fetchColumn();
     }
     private function math($math, $col, $array = '', $other = '')
@@ -118,6 +119,8 @@ class DB
     private function a2s($array)
     {
         foreach ($array as $col => $value) {
+            // 檢查變數是否有特殊符號
+            $value=$this->check($value);
             $tmp[] = "`$col`='$value'";
         }
         return $tmp;
@@ -146,6 +149,15 @@ class DB
             return $sql;
         }
     }
+
+    /**
+     * 檢查及處理所有的參數
+     */
+    function check($arg){
+        $arg=htmlspecialchars($arg);
+        return $arg;
+    }
+
 }
 
 function dd($array)

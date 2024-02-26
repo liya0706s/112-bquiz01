@@ -1,5 +1,15 @@
 <?php include_once "db.php";
 
+// echo "<br>";
+// echo 'count->' .$Admin->count(['acc'=> $_POST['acc'],'pw'=>$_POST['pw']]); 
+// echo "<br>";
+// 有意人士帳號輸入: ' OR 1=1;  <=SQL注入
+
+// 過濾表單
+// $acc=htmlspecialchars($_POST['acc']);
+// $pw=htmlspecialchars($_POST['pw']);
+
+
 if($Admin->count(['acc'=> $_POST['acc'],'pw'=>$_POST['pw']])>0){
     // 資料庫來的
     // 如果用find會傳回資料，流量會增加，算數字有一筆就登入成功
