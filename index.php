@@ -94,22 +94,6 @@
 			} else {
 				include "./front/main.php";
 			}
-
-			// ??: 這是 null 合併運算符。
-			// 如果左運算元存在且不是 null，則返回左運算元的值；否則，返回右運算元的值。
-			// 如果 $_GET['do'] 是 null 或未被定義，則 $do 將被設定為 'main'
-
-			// $do = $_GET['do'] ?? 'main';
-			// switch ($do) {
-			// 	case "login";
-			// 		include "./front/login.php";
-			// 		break;
-			// 	case "news";
-			// 		include "./front/news.php";
-			// 		break;
-			// 		default:
-			// 		include "./front/main.php";
-			// }
 			?>
 
 			<!-- 中間區塊結束 -->
